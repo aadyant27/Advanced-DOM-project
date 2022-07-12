@@ -53,3 +53,18 @@ btnScrollTo.addEventListener('click', e => {
   // });
   section1.scrollIntoView({ behavior: 'smooth' });
 });
+
+////////////////////////////////////////////
+// PAGE NAVIGATION using EVENT-DELEGATION
+
+const abc = document
+  .querySelector('.nav__links')
+  .addEventListener('click', e => {
+    if (e.target.classList.contains('nav__link')) {
+      //To prevent default behavior of href elements to move to internal-links upon clicking
+      e.preventDefault();
+      // console.log();
+      const id = e.target.getAttribute('href');
+      document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+    }
+  });
