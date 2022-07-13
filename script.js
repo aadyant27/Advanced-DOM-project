@@ -68,3 +68,5 @@ const abc = document
       document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
     }
   });
+//////////////////////////////////////
+// TABBED COMPONENTS
