@@ -70,3 +70,6 @@ const abc = document
   });
 //////////////////////////////////////
 // TABBED COMPONENTS
+const tabs = document.querySelectorAll('.operations__tab');
+const tabsContainer = document.querySelector('.operations__tab-container');
+const tabsContent = document.querySelectorAll('.operations__content');
