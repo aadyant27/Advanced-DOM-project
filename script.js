@@ -73,7 +73,26 @@ const abc = document
 const tabs = document.querySelectorAll('.operations__tab');
 const tabsContainer = document.querySelector('.operations__tab-container');
 const tabsContent = document.querySelectorAll('.operations__content');
-
+// const op = document.querySelector('.operations');
+// console.log(x);
 tabsContainer.addEventListener('click', e => {
-  const clicked = e.target.closest('.operation__tab');
+  const clicked = e.target.closest('.operations__tab');
+
+  //Guard Clause
+  if (!clicked) return;
+
+  //--Remove active class from
+  //-1. Buttons
+  tabs.forEach(tab => tab.classList.remove('operations__tab--active'));
+  //-2. Content
+  tabsContent.forEach(content =>
+    content.classList.remove('operations__content--active')
+  );
+
+  //--Add active class to
+  const data = clicked.dataset.tab;
+  //-1. Button
+  tabs[data - 1].classList.add('operations__tab--active');
+  //-2. Content
+  tabsContent[data - 1].classList.add('operations__content--active');
 });
