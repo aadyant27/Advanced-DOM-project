@@ -4,6 +4,9 @@ const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnOpenModal = document.querySelectorAll('.btn--show-modal');
 const btnCloseModal = document.querySelector('.btn--close-modal');
+const tabs = document.querySelectorAll('.operations__tab');
+const tabsContainer = document.querySelector('.operations__tab-container');
+const tabsContent = document.querySelectorAll('.operations__content');
 
 ///////////////////////////////////////
 // MODAL WINDOW
@@ -70,11 +73,6 @@ const abc = document
   });
 //////////////////////////////////////
 // TABBED COMPONENTS
-const tabs = document.querySelectorAll('.operations__tab');
-const tabsContainer = document.querySelector('.operations__tab-container');
-const tabsContent = document.querySelectorAll('.operations__content');
-// const op = document.querySelector('.operations');
-// console.log(x);
 tabsContainer.addEventListener('click', e => {
   const clicked = e.target.closest('.operations__tab');
 
