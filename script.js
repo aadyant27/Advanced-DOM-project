@@ -94,3 +94,7 @@ tabsContainer.addEventListener('click', e => {
   //-2. Content
   tabsContent[data - 1].classList.add('operations__content--active');
 });
+
+//////////////////////////////////////
+// FADE IN-OUT ANIMATION(MENU
+)
