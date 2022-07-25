@@ -97,4 +97,30 @@ tabsContainer.addEventListener('click', e => {
 
 //////////////////////////////////////
 // FADE IN-OUT ANIMATION(MENU
-)
+const nav = document.querySelector('.nav');
+
+const handleHover = function (e, flag) {
+  if (e.target.classList.contains('nav__link')) {
+    //selecting the active element
+    const link = e.target;
+    //selecting the sibling of the active element
+    const siblings = link.closest('nav').querySelectorAll('.nav__link');
+    //selecting the logo
+    const logo = link.closest('nav').querySelector('img');
+
+    if (flag === 1) {
+      siblings.forEach(el => {
+        if (el != link) el.style.opacity = 0.5;
+      });
+      logo.style.opacity = 0.5;
+    } else {
+      siblings.forEach(el => {
+        if (el != link) el.style.opacity = 1;
+      });
+      logo.style.opacity = 1;
+    }
+  }
+};
+nav.addEventListener('mouseover', handleHover);
+
+nav.addEventListener('mouseout', handleHover);
