@@ -109,25 +109,10 @@ const handleHover = function (e) {
     const logo = link.closest('nav').querySelector('img');
 
     siblings.forEach(el => {
-      if (el != link) el.style.opacity = 0.5;
+      if (el != link) el.style.opacity = this;
     });
-    logo.style.opacity = 0.5;
+    logo.style.opacity = this;
   }
 };
-nav.addEventListener('mouseover', handleHover);
-
-nav.addEventListener('mouseout', e => {
-  if (e.target.classList.contains('nav__link')) {
-    //selecting the active element
-    const link = e.target;
-    //selecting the sibling of the active element
-    const siblings = link.closest('nav').querySelectorAll('.nav__link');
-    //selecting the logo
-    const logo = link.closest('nav').querySelector('img');
-
-    siblings.forEach(el => {
-      if (el != link) el.style.opacity = 1;
-    });
-    logo.style.opacity = 1;
-  }
-});
+nav.addEventListener('mouseover', handleHover.bind(0.5));
+nav.addEventListener('mouseout', handleHover.bind(1));
