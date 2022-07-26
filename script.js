@@ -7,6 +7,7 @@ const btnCloseModal = document.querySelector('.btn--close-modal');
 const tabs = document.querySelectorAll('.operations__tab');
 const tabsContainer = document.querySelector('.operations__tab-container');
 const tabsContent = document.querySelectorAll('.operations__content');
+const nav = document.querySelector('.nav');
 
 ///////////////////////////////////////
 // MODAL WINDOW
@@ -97,8 +98,6 @@ tabsContainer.addEventListener('click', e => {
 
 //////////////////////////////////////
 // FADE IN-OUT ANIMATION(MENU
-const nav = document.querySelector('.nav');
-
 const handleHover = function (e) {
   if (e.target.classList.contains('nav__link')) {
     //selecting the active element
