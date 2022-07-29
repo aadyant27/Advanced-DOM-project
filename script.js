@@ -4,6 +4,8 @@ const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnOpenModal = document.querySelectorAll('.btn--show-modal');
 const btnCloseModal = document.querySelector('.btn--close-modal');
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.getElementById('section--1');
 const tabs = document.querySelectorAll('.operations__tab');
 const tabsContainer = document.querySelector('.operations__tab-container');
 const tabsContent = document.querySelectorAll('.operations__content');
@@ -43,10 +45,6 @@ document.addEventListener('keydown', e => {
 
 ///////////////////////////////////////
 // SMOOTH SCROLLING
-
-const btnScrollTo = document.querySelector('.btn--scroll-to');
-const section1 = document.getElementById('section--1');
-
 btnScrollTo.addEventListener('click', e => {
   console.log(e.target.getBoundingClientRect());
   console.log(section1.getBoundingClientRect());
@@ -130,10 +128,37 @@ const stickyNav = function (thresholdEntries) {
     nav.classList.remove('sticky');
   }
 };
-const options = {
+const options1 = {
   root: null,
   threshold: 0,
   rootMargin: `-${navHeight}px`,
 };
-const headerObserver = new IntersectionObserver(stickyNav, options);
+const headerObserver = new IntersectionObserver(stickyNav, options1);
 headerObserver.observe(header);
+
+///////////////////////////////////////
+// REVEAL SECTION
+
+//section--hidden
+const sectionAll = document.querySelectorAll('.section');
+
+console.log(sectionAll[0]);
+const revealSection = function (entries, observer) {
+  // console.log(entries[0].target);
+  const [entry] = entries;
+  if (entry.isIntersecting) {
+    entry.target.classList.remove('section--hidden');
+    //To disable the 2nd observe event that happens for each intersection
+    observer.unobserve(entry.target);
+  }
+};
+const options2 = {
+  root: null,
+  threshold: 0.15,
+};
+const sectionObserver = new IntersectionObserver(revealSection, options2);
+sectionAll.forEach(section => {
+  //Initially hiding all section so that we can reveal them later
+  section.classList.add('section--hidden');
+  sectionObserver.observe(section);
+});
